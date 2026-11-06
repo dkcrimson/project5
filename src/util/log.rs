@@ -27,7 +27,7 @@ pub fn log() {
     let log_level = env::var("LOG_LEVEL").unwrap_or_else(|_| String::from("info"));
 
     let filter = EnvFilter::builder()
-        .with_default_directive(LevelFilter::INFO.into())
+        .with_default_directive(LevelFilter::DEBUG.into())
         .parse_lossy(format!("warn,{}={log_level}", env!("CARGO_PKG_NAME")));
 
     tracing_subscriber::fmt()
