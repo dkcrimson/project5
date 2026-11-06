@@ -12,6 +12,9 @@ pub enum Error {
 
     #[error("invalid utf8: {0}")]
     Utf8(String),
+
+    #[error("parse command error: {0}")]
+    ParseCommand(String),
 }
 
 impl From<std::str::Utf8Error> for Error {

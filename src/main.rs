@@ -1,4 +1,6 @@
 mod util;
+mod command;
+mod server;
 
 pub use util::err::{Error, Result};
 
@@ -11,6 +13,7 @@ async fn main() -> Result<()> {
     util::err::setup_eyre();
 
     debug!("Hi!!!");
+    server::listen().await?;
 
     Ok(())
 }
